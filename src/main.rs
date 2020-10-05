@@ -28,6 +28,7 @@ fn run_benchmarks() {
     benchmark(&insertion::sort, "insertion sort");
     benchmark(&selection::sort, "selection sort");
     benchmark(&merge::sort_top_down, "merge top-down");
+    benchmark(&merge::sort_bottom_up, "merge bottom-up");
 }
 
 fn main() {

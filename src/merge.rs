@@ -35,6 +35,27 @@ pub fn sort_top_down(array: &mut [i32]) {
     array.copy_from_slice(&merged);
 }
 
+pub fn sort_bottom_up(array: &mut [i32]) {
+    use std::cmp::min;
+    let mut size = 1;
+    let length = array.len();    
+
+    while size < length {
+        let mut i = 0;
+        // loop over array segments
+        while i < length {
+            let bound = min(i + size * 2, length);
+            let middle = min(i + size, length);
+
+            let merged = merge(&array[i..middle], &array[middle..bound]);
+            array[i..bound].copy_from_slice(&merged);
+
+            i += size * 2;
+        }
+        size *= 2;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -43,6 +64,13 @@ mod tests {
     fn test_merge_top_down_sort() {
         let mut arr = UNSORTED_ARRAY;
         sort_top_down(&mut arr);
+        assert_eq!(arr, SORTED_ARRAY);
+    }
+
+    #[test]
+    fn test_merge_bottom_up_sort() {
+        let mut arr = UNSORTED_ARRAY;
+        sort_bottom_up(&mut arr);
         assert_eq!(arr, SORTED_ARRAY);
     }
 }
