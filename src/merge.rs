@@ -59,7 +59,7 @@ pub fn sort_bottom_up(array: &mut [i32]) {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use sorting_algorithms::{UNSORTED_ARRAY, SORTED_ARRAY};
+    use crate::{UNSORTED_ARRAY, SORTED_ARRAY};
     #[test]
     fn test_merge_top_down_sort() {
         let mut arr = UNSORTED_ARRAY;
