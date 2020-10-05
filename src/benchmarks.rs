@@ -1,9 +1,6 @@
 use std::time::{Instant, Duration};
 use rand::Rng;
-use crate::bubble;
-use crate::insertion;
-use crate::selection;
-use crate::merge;
+use crate::{bubble, insertion, selection, merge};
 
 const ARR_SIZES: [usize; 3] = [100, 1000, 5000];
 const PASS_COUNT: usize = 10;
@@ -21,14 +18,12 @@ fn benchmark(f: &dyn Fn(&mut [i32]), name: &str, size: usize) {
     let mut duration: Duration = Duration::new(0, 0);
 
     print!("Benchmarking {}...", name);
-    
     for _ in 0..PASS_COUNT {
         let mut vec = get_benchmark_vector(size);
         let start = Instant::now();
         f(&mut vec);
         duration += start.elapsed();
     }
-
     println!("\t{:?}", duration / PASS_COUNT as u32);
 }
 
