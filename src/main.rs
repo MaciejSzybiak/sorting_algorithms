@@ -4,6 +4,7 @@ use rand::Rng;
 mod bubble;
 mod insertion;
 mod selection;
+mod merge;
 
 const ARR_SIZE: usize = 1000;
 
@@ -25,7 +26,8 @@ fn run_benchmarks() {
 
     benchmark(&bubble::sort, "bubble sort");
     benchmark(&insertion::sort, "insertion sort");
-    benchmark(&selection::sort, "selection sort")
+    benchmark(&selection::sort, "selection sort");
+    benchmark(&merge::sort_top_down, "merge top-down");
 }
 
 fn main() {
