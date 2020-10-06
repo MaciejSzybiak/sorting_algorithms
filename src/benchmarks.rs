@@ -1,6 +1,6 @@
 use std::time::{Instant, Duration};
 use rand::Rng;
-use crate::{bubble, insertion, selection, merge, heap};
+use crate::{bubble, insertion, selection, merge, heap, quicksort};
 
 const ARR_SIZES: [usize; 3] = [100, 1000, 5000];
 const PASS_COUNT: usize = 10;
@@ -38,6 +38,7 @@ pub fn run_benchmarks() {
         benchmark(&merge::sort_top_down, "merge top-down", ARR_SIZES[i]);
         benchmark(&merge::sort_bottom_up, "merge bottom-up", ARR_SIZES[i]);
         benchmark(&heap::sort, "heap sort", ARR_SIZES[i]);
+        benchmark(&quicksort::sort, "quicksort", ARR_SIZES[i]);
 
         println!();
     }

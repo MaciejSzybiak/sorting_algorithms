@@ -11,3 +11,4 @@ The program itself provides a quick benchmark utility which measures the average
 - [selection sort](src/selection.rs)
 - [merge sort](src/merge.rs) (top-down and bottom-up versions)
 - [heap sort](src/heap.rs)
+- [quicksort](src/quicksort.rs)
