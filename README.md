@@ -9,3 +9,4 @@ The program itself provides a quick benchmark utility which measures the average
 - [insertion sort](src/insertion.rs)
 - [selection sort](src/selection.rs)
 - [merge sort](src/merge.rs) (top-down and bottom-up versions)
+- [heap sort](src/heap.rs)
